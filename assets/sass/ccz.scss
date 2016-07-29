@@ -1,0 +1,276 @@
+@import 'mixins';
+@import 'vars';
+@import 'elements';
+@import 'header';
+@import 'case';
+@import 'utility';
+
+body{
+	background-color: $yellow;
+	display: flex;
+  color: $black;
+  flex-direction: column;
+  font-family: $helvetica-light;
+  min-height: 100vh;
+}
+
+img{
+	max-width: 100%;
+}
+
+.hidden{
+	display: none !important;
+}
+
+.SiteContent{
+	flex: 1;
+	margin-top: 78px;
+	z-index: 1;
+}
+
+#particles-js canvas{
+	left: 0px;
+	position: fixed;
+	top: 78px;
+	z-index: 0;
+}
+
+
+
+/* Slider */
+
+.Slider{
+		&-logo{
+		display: block;
+		margin: 12% auto 10%;
+		max-width: 850px;
+		width: 75%;
+	}
+
+	&-item{
+		position: relative;
+		text-align: center;
+	}
+	
+	.Button--arrow{
+		margin-top: 5%;
+	}
+
+	h2{
+		font-size: 81px;
+	}
+}
+
+.Banner{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: calc(100vh - 78px);
+}
+
+
+
+/* Slider-nav */
+
+.slick-prev, .slick-next{
+	@include transition(scale, .5s, linear);
+
+	background-color: transparent;
+	background-image: url("../img/icons/arrow.svg");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 0;
+	color: transparent;
+	cursor: pointer;
+	display: inline-block;
+	height: 82px;
+	position: absolute;
+	width: 44px;
+	top: calc(50% - 41px);
+
+	&:hover{
+		@include transform(scale(1.05));
+	}
+
+	&:focus{
+		outline: none;
+	}
+}
+
+.slick-next{
+	right: 28px;
+}
+
+.slick-prev{
+	@include transform(scaleX(-1));
+
+	left: 28px;
+
+	&:hover{
+		@include transform(scaleX(-1) scale(1.05));
+	}
+}
+
+
+
+/* Section */
+
+.Section{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 160px 0 240px;
+	margin-bottom: 200px;
+
+	&--small{
+		@extend .Section;
+		padding: 130px 0 100px;
+	}
+}
+
+
+
+/* Cases */
+
+#Cases{
+	background-image: url("../img/bg-dog.jpg");
+	
+	h2{
+		font-size: 60px;
+	}
+}
+
+/* Credenciais */
+
+#Credenciais{
+	background-image: url("../img/bg-tree.jpg");
+
+	h2{
+		font-size: 72px;
+		margin-bottom: 60px;
+	}
+
+	p{
+		line-height: 34px;
+	}
+
+	.Button--arrow{
+		margin-top: 70px;
+	}
+}
+
+/* Contato */
+
+#Contato{
+	background-image: url("../img/bg-kids.jpg");
+	margin-bottom: 0;
+
+	.RedesSociais{
+		margin-top: 160px;
+	}
+
+	h2{
+		font-size: 58px;
+	}
+
+	p{
+		font-size: 22px;
+		line-height: 1.2;
+		margin-bottom: 10px;
+	}
+
+	form{
+		@include clearfix;
+	}
+}
+
+.RedesSociais{
+	margin-left: -25px;
+
+	ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	a{
+		display: inline-block;
+	}
+
+	li{
+		display: inline-block;
+		margin: 0 6px;
+
+		&:nth-child(1){
+			&:hover{
+				svg{
+					fill: #3b5998;
+				}
+			}
+		}
+
+		&:nth-child(2){
+			&:hover{
+				svg{
+					fill: #1da1f2;
+				}
+			}
+		}
+
+		&:nth-child(3){
+			&:hover{
+				svg path.yt-red{
+					fill: #e62117;
+				}
+			}
+		}
+
+		&:nth-child(4){
+			&:hover{
+				path, polygon{
+					fill: #d44739;
+				}
+			}
+		}
+	}
+
+	svg{
+		@include transition(fill, .2s, linear);
+
+		max-height: 50px;
+	}
+
+	path, polygon{
+		@include transition(fill, .2s, linear);
+	}
+}
+
+.SiteFooter{
+	@include clearfix;
+
+	background-color: #000000;
+	height: 80px;
+	z-index: 1;
+
+	small, img{
+		margin-top: 25px;
+	}
+
+	small{
+		color: $white;
+		display: inline-block;
+		float: left;
+		font-size: 12px;
+	}
+
+	img{
+		display: inline-block;
+		float: right;
+		height: 36px;
+	}
+}
+
+#map{
+	height: 670px;
+}

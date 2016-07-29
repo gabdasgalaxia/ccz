@@ -1,0 +1,405 @@
+.Banner{
+	position: relative;
+
+	&-content{
+		padding-top: 10%;
+
+		@include MQ(S){
+			padding-top: 10%;
+		}
+
+		@include MQ(M){
+			padding-top: 15%;
+		}
+
+		@include MQ(L){
+			padding-top: 20%;
+		}
+	}
+
+	&-title{
+		color: #000000;
+		display: inline-block;
+		font-family: $arvo;
+		font-size: 60px;
+		line-height: 1.2;
+		margin-bottom: 5%;
+		padding: 6px 25px 8px 20px;
+	}
+
+	&-title, p{
+		background-color: $yellow;
+		
+	}
+
+	p{
+		display: table;
+		margin-bottom: 5px;
+		font-size: 36px;
+		line-height: 1;
+		padding: 14px 8px 6px 18px;
+	}
+
+	.i-mouse{
+		@include center(x);
+
+		position: absolute;
+		bottom: 75px;
+	}
+
+	&--arrow{
+		@extend .Banner;
+
+		&::after{
+			@include center(x);
+
+			border-bottom: 32px solid $yellow;
+			border-left: 28px solid transparent;
+			border-right: 28px solid transparent;
+			bottom: 0;
+			content: "";
+			display: inline-block;
+			height: 0;
+			position: absolute;
+			width: 0;
+		}
+	}
+}
+
+
+
+/* SideMenu */
+
+.SideMenu{
+	@include center(y);
+
+	position: absolute;
+	right: 30px;
+	height: 100%;
+	width: 50px;
+}
+
+.ButtonGrid{
+	cursor: pointer;
+	height: 50px;
+	position: absolute;
+	right: 0;
+	top: calc(50% - 155px);
+	width: 50px;
+  
+  
+  &.open{
+    span{
+			background: white;
+			border-radius: 0;
+			border: 0;
+			height: 4px;
+			left: 0;
+			position: absolute;
+			width: 16px;
+
+      &:nth-child(1), &:nth-child(4){
+				@include transform(rotate(-135deg));
+      }
+
+      &:nth-child(2), &:nth-child(3){
+      	@include transform(rotate(135deg));
+      }
+
+      &:nth-child(1), &:nth-child(2){
+      	top: 13px;
+      }
+			
+			&:nth-child(1), &:nth-child(3){
+				left: 10px;
+			}
+
+			&:nth-child(3), &:nth-child(4){
+				top: 24px;
+			}
+
+			&:nth-child(2), &:nth-child(4){
+				left: 22px;
+			}      
+    }
+  }
+  
+  span{
+    @include transition(all, .3s, linear);
+
+    border-color: white;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    display: inline-block;
+    height: 22px;
+    margin: 0;
+    position: absolute;
+    width: 22px;
+
+    &:nth-child(1), &:nth-child(2){
+    	top: 0;
+    }
+
+    &:nth-child(1), &:nth-child(3){
+    	margin-left: 0;
+    }
+    
+    &:nth-child(1), &:nth-child(3){
+      left: 0;      
+    }
+
+    &:nth-child(2), &:nth-child(3){
+    	bottom: 0;
+    	margin-right: 0;
+    }
+
+    &:nth-child(4){
+    	bottom: 0;
+   	}
+
+    
+    &:nth-child(2), &:nth-child(4){
+      right: 0;
+    }
+  }
+}
+
+
+.ButtonList{
+  cursor: pointer;
+  display: block;
+  height: 44px;
+  position: absolute;
+  right: 0;
+  top: calc(50% + 100px);
+  width: 50px;
+
+  span{
+    @include transition(all, .4s, linear);
+    @include center;
+
+    border-color: white;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 2px;
+    display: inline-block;
+    height: 12px;
+    position: absolute;
+    width: 50px;
+    
+    &::before, &::after{
+      @include transition(all, .4s, linear);
+
+      border-color: white;
+      border-radius: 3px;
+      border-style: solid;
+      border-width: 2px;
+      content: "";
+      display: block;
+      height: 12px;
+      left: -2px;
+      position: absolute;
+      width: 50px;
+    }
+    
+    &::before{
+      top: -18px;
+    }
+    
+    &::after{
+      top: 14px;
+    }
+  }
+  
+  &.open{
+    span{
+      border-color: transparent;
+      
+      &::before, &::after{
+				background-color: white;
+				border: 0;
+				height: 4px;
+				left: 8px;
+				top: 2px;
+				width: 32px;
+      }
+      
+      &::before{
+        transform: rotate(135deg);
+      }
+      
+      &::after{
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}
+
+.postNavButton{
+	@include center(y);
+
+	background-color: $yellow;
+	display: inline-block;
+	height: 150px;
+	position: absolute;
+	width: 130px;
+	z-index: 1;
+
+	&::before{
+		@include center;
+
+		background-image: url("../img/ico-right.png");
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: "";
+		display: block;
+		height: 82px;
+		position: absolute;
+		width: 40px;
+	}
+
+	&.next{
+		right: 0;
+	}
+
+	&.prev{
+		@include transform(scaleX(-1) translateY(-50%));
+		left: 0;
+	}
+
+}
+
+
+
+/*  CASE CONTENT */
+
+.Case{
+	h4{
+		font-size: 72px;
+	}
+
+	h5{
+		font-size: 60px;
+		line-height: 1.1;
+		margin-bottom: 60px;
+	}
+
+	&-sobre{
+		p{
+			margin-bottom: 0;
+		}
+	}
+
+	&-cenario{
+		position: relative;
+		overflow: hidden;
+
+		> .container-fluid{
+			display: flex;
+		}
+
+		.i-asterisco{
+			bottom: -30px;
+			left: -80px;
+			position: absolute;
+			width: 70%;
+		}
+
+		h4{
+			position: absolute;
+			right: 60px;
+			top: 65px;
+		}
+
+		.col-md-6{
+			&:first-child{
+				background-color: $yellow;
+			}
+
+			&:last-child{
+				background-color: #f4f4f4;
+				padding: 10vw 6vw;
+				position: relative;
+
+				&::before{
+					background-color: #f4f4f4;
+					content: "";
+					display: block;
+					height: 100%;
+					position: absolute;
+					right: -100vw;
+					top: 0;
+					width: 100vw;
+				}
+
+				p{
+					font-size: 24px;
+					line-height: 34px;
+					width: 80%;
+				}
+			}
+		}
+	}
+
+	&-desafio{
+		h4{
+			margin-bottom: 70px;
+		}
+
+		p{
+			font-size: 24px;
+			line-height: 34px;
+		}
+
+		.col-md-5:last-child{
+			padding-top: 80px;
+			font-family: $nexa;
+			font-size: 36px;
+			line-height: 60px;
+		}
+	}
+}
+
+.CasePremios{
+	background-color: $yellow;
+	padding: 65px 0 55px;
+	text-align: center;
+	overflow: hidden;
+	position: relative;
+
+	.i-asterisco{
+		@include center(x);
+
+		height: 864px;
+		left: 52%;
+		position: absolute;
+		top: -176px;
+		width: 864px;
+	}
+}
+
+.ListaPremios{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+
+	li{
+		display: inline-block;
+		margin: 0 15px;
+	}
+
+	img{
+		display: block;
+		margin: 0 auto 10px;
+	}
+
+	p{
+		font-family: $arvo;
+		font-size: 23px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}

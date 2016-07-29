@@ -1,0 +1,47 @@
+/* ICONS */
+
+.i-mouse{
+	background-image: url("../img/icons/mouse.svg");
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-block;
+	height: 106px;
+	width: 64px;
+}
+
+.i-triangle{
+	border-bottom: 40px solid transparent;
+	border-left: 52px solid $yellow;
+	border-top: 40px solid transparent;
+	height: 0; 
+	position: absolute;
+	right: -52px;
+	top: 12%;
+	width: 0; 
+	z-index: 1;
+}
+
+
+/* UTILITY */
+
+.u-galaxy{
+	background-image: url("../img/bg-galaxy.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 75px 0 65px;
+
+	&--bigBottom{
+		@extend .u-galaxy;
+		padding: 55px 0 210px;
+	}
+}
+
+.u-lineBreak{
+	display: none;
+
+	@include MQ(M){
+		display: block;
+	}
+}
